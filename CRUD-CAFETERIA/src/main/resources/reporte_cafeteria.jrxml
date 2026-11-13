@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="ReporteCafeteria" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+    <queryString><![CDATA[SELECT id_producto, nombre, categoria, precio, stock, disponibilidad FROM productos]]></queryString>
+    <field name="id_producto" class="java.lang.Integer"/>
+    <field name="nombre" class="java.lang.String"/>
+    <field name="categoria" class="java.lang.String"/>
+    <field name="precio" class="java.math.BigDecimal"/>
+    <field name="stock" class="java.lang.Integer"/>
+    <field name="disponibilidad" class="java.lang.String"/>
+    <title>
+        <band height="45">
+            <staticText>
+                <reportElement x="0" y="10" width="555" height="25"/>
+                <textElement textAlignment="Center"><font size="16" isBold="true"/></textElement>
+                <text><![CDATA[REPORTE DE PRODUCTOS - CAFETERÍA]]></text>
+            </staticText>
+        </band>
+    </title>
+    <columnHeader>
+        <band height="25">
+            <staticText><reportElement x="0" y="0" width="40" height="20"/><textElement><font isBold="true"/></textElement><text><![CDATA[ID]]></text></staticText>
+            <staticText><reportElement x="40" y="0" width="160" height="20"/><textElement><font isBold="true"/></textElement><text><![CDATA[Producto]]></text></staticText>
+            <staticText><reportElement x="200" y="0" width="120" height="20"/><textElement><font isBold="true"/></textElement><text><![CDATA[Categoría]]></text></staticText>
+            <staticText><reportElement x="320" y="0" width="70" height="20"/><textElement><font isBold="true"/></textElement><text><![CDATA[Precio]]></text></staticText>
+            <staticText><reportElement x="390" y="0" width="60" height="20"/><textElement><font isBold="true"/></textElement><text><![CDATA[Stock]]></text></staticText>
+            <staticText><reportElement x="450" y="0" width="105" height="20"/><textElement><font isBold="true"/></textElement><text><![CDATA[Estado]]></text></staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="22">
+            <textField><reportElement x="0" y="0" width="40" height="20"/><textFieldExpression><![CDATA[$F{id_producto}]]></textFieldExpression></textField>
+            <textField><reportElement x="40" y="0" width="160" height="20"/><textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression></textField>
+            <textField><reportElement x="200" y="0" width="120" height="20"/><textFieldExpression><![CDATA[$F{categoria}]]></textFieldExpression></textField>
+            <textField><reportElement x="320" y="0" width="70" height="20"/><textFieldExpression><![CDATA["S/ " + $F{precio}]]></textFieldExpression></textField>
+            <textField><reportElement x="390" y="0" width="60" height="20"/><textFieldExpression><![CDATA[$F{stock}]]></textFieldExpression></textField>
+            <textField><reportElement x="450" y="0" width="105" height="20"/><textFieldExpression><![CDATA[$F{disponibilidad}]]></textFieldExpression></textField>
+        </band>
+    </detail>
+</jasperReport>
